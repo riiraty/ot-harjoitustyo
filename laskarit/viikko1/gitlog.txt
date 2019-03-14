@@ -1,0 +1,114 @@
+riiraty@dx5-cs-bk107-35:/home/ad/lxhome/r/riiraty/Linux/ot_viikko1/tiedostoja$ git log --stat | cat
+commit 6523df3a545f5be154c464416a4fc0e1d4247d20
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 16:20:49 2019 +0200
+
+    poisto ja uudelleennimeäminen.
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit ced20654782e628baebb6f2b4524a9f96124c7de
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 16:14:00 2019 +0200
+
+    uusia tiedostoja
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 873ac81db7c1aee07cf593a2db8957fa6ac6909a
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 16:04:58 2019 +0200
+
+    muutoksia ekaan ja kolmanteen
+
+ eka.txt    | 2 +-
+ kolmas.txt | 4 +++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+commit 7961822335261fdcd4c2c812776bf94912154e69
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 16:01:54 2019 +0200
+
+    uudelleennimettiin tiedosto
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d0af905cc7189939fc1c90491899449b425288e1
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 16:00:29 2019 +0200
+
+    toinen.txt poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 9f7da927f444ee83b4d6a8c2ef47784dcd5f2377
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 15:48:19 2019 +0200
+
+    osa poistettu, jotain lisätty
+
+ tiedosto.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 3fe0b0202c61f6360eaef716a4c4e07d5335e4af
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 15:40:38 2019 +0200
+
+    paljon tekstiä lisätty
+
+ tiedosto.txt | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit 7406df181ba47d932df32c3c859048b8405b7794
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 15:23:47 2019 +0200
+
+    uusi hakemisto
+
+ stuff/jokin_tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6ce995949416ef3cc2b118590c86174601577219
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 15:21:40 2019 +0200
+
+    tiedostojen muokkauksia
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit b4f15e29590d013ed0448701c903e957d50815b6
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 15:19:22 2019 +0200
+
+    tiedoston lisäys
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6bd1d9607a158cf6bd2d660369e79539577ea94a
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 15:03:32 2019 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit dd1228774c0e4e6dc09836a97d1106ce2fc4cd1c
+Author: Riikka Raty <48516441+riiraty@users.noreply.github.com>
+Date:   Thu Mar 14 14:44:24 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
