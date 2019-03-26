@@ -8,6 +8,10 @@
 
 [komentorivi.txt](https://github.com/riiraty/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
+### Viikko 2
+
+[testikattavuus.png](https://github.com/riiraty/ot-harjoitustyo/blob/master/laskarit/viikko2/kattavuusraportti.png)
+
 --------------------------------
 
 Kursilla toteutetaan **harjoitustyönä** itsenäisesti ohjelmisto omavalintaisesta aiheesta.
