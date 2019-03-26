@@ -12,6 +12,8 @@
 
 [testikattavuus.png](https://github.com/riiraty/ot-harjoitustyo/blob/master/laskarit/viikko2/kattavuusraportti.png)
 
+### Viikko 3
+
 --------------------------------
 
 ## Time management app
