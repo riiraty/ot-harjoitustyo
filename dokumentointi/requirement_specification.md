@@ -26,4 +26,4 @@ The application allows the user to keep up with how the time is managed througho
 * Following changes in time usage
 * Different ways/graphs for viewing summaries (pie chart)
 * Ability to define own activity types and choose the color codes
-* real-time log, *start working* *take a break*
+* real-time log, for example *start working* or *take a break*
