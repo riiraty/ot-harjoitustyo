@@ -14,5 +14,8 @@
 
 --------------------------------
 
-Kursilla toteutetaan **harjoitustyönä** itsenäisesti ohjelmisto omavalintaisesta aiheesta.
-Harjoitustyö *soveltaa* kurssilla opittuja periaatteita ja menetelmiä. Harjoitustyö etenee *viikottaisten tavoitteiden* mukaan. Lopuksi on valmista.
+## Time management app
+
+### Documentation
+
+[Requirement specification](https://github.com/riiraty/ot-harjoitustyo/blob/master/dokumentointi/requirement_specification.md)
