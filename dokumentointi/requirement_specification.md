@@ -15,15 +15,18 @@ Function to create a new log and summary of the week on the right, timetable of 
  
 ## Functionality
 
-(username and log in?)
 * User can log activities by giving start time, end time and type of activity
-* User can see their logs color coded on a timetable, the current day and 6? previous ones
-* User can edit the logs they made
-* User can get a summary of the week
+* User can see their logs color coded on a timetable, the current day and 6 previous ones
+* User can edit and delete the logs they made
+* User can look at older logs 
+
 
 ## Ideas for future development
 
+* The log has an option to add description
+* User can get a summary of the week (pie chart)
+* Adding username and login, allowing several users
 * Following changes in time usage
-* Different ways/graphs for viewing summaries (pie chart)
 * Ability to define own activity types and choose the color codes
 * real-time log, for example *start working* or *take a break*
+
