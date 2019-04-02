@@ -2,6 +2,7 @@
 package timemanagementapp;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class Log {
@@ -17,6 +18,16 @@ public class Log {
         this.start = start;
         this.end = end;
     }
+
+    @Override
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+        String startTime = start.format(formatter);
+        String endTime = end.format(formatter);
+        return ("Activity type: " + activityType + ", Start time: " + startTime + ", End time: " + endTime);
+    }
+    
+    
     
     
     

@@ -8,16 +8,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import static javafx.scene.paint.Color.BLUE;
-import static javafx.scene.paint.Color.GREEN;
-import static javafx.scene.paint.Color.RED;
 import javafx.stage.Stage;
 
 
@@ -32,6 +29,7 @@ public class TimeManagementAppUi extends Application {
     @Override
     public void start(Stage primaryStage) {
         
+        // the components of the main scene
         Button newLogButton = new Button("NEW LOG");
         Button uselessButton = new Button("USELESS BUTTON");
         
@@ -41,35 +39,37 @@ public class TimeManagementAppUi extends Application {
         layOutRight.setPrefSize(180, 700);
         layOutRight.getChildren().addAll(newLogButton, uselessButton);
         
-        Canvas canvas = new Canvas(1100, 700);
+        TextArea leftField = new TextArea("");
+        leftField.setPrefSize(1100, 700);
 
         BorderPane layOut = new BorderPane();
         layOut.setRight(layOutRight);
-        layOut.setLeft(canvas);
+        layOut.setLeft(leftField);
         
         Scene mainScene = new Scene(layOut);
         
         primaryStage.setTitle("Time Management App");
         primaryStage.setScene(mainScene);
         primaryStage.show();
-        
+
+        //a new window for making new logs
         ObservableList<ActivityType> options = 
-            FXCollections.observableArrayList(
-                new ActivityType("Work", RED),
-                new ActivityType("Errands", BLUE),
-                new ActivityType("Sport", GREEN)
-            );
-        final ComboBox comboBox = new ComboBox(options);
+                FXCollections.observableArrayList(timeManagementService.getActivityTypes());
+        ComboBox comboBox = new ComboBox(options);
+        comboBox.setPromptText("Select --");
         
         LocalDateTime current = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
         String formatDateTime = current.format(formatter);
+        
         Label activityLabel = new Label("Activity type: ");
         
         Label startLabel = new Label("Start time: ");
         TextField startField = new TextField("" + formatDateTime);
+        
         Label endLabel = new Label("End time: ");
         TextField endField = new TextField("" + formatDateTime);
+        
         Button createLogButton = new Button("LOG");
         
         VBox logLayOut = new VBox();
@@ -81,21 +81,31 @@ public class TimeManagementAppUi extends Application {
         
         Scene logScene = new Scene(logLayOut);
         
-        newLogButton.setOnAction((event) -> {
-            Stage logStage = new Stage();
-            logStage.setTitle("New Log");
-            logStage.setScene(logScene);
+        Stage logStage = new Stage();
+        logStage.setTitle("New Log");
+        logStage.setScene(logScene);
+        
+        newLogButton.setOnAction((event) -> { 
             logStage.show();
         });
         
+        
         createLogButton.setOnAction((event) -> {
-            //ActivityType activity = comboBox.getValue();
-            //timeManagementService.createLog();
+            ActivityType activity = (ActivityType)comboBox.getValue();
+            
+            String startString = startField.getText();
+            LocalDateTime startTime = LocalDateTime.parse(startString, formatter);
+            
+            String endString = startField.getText();
+            LocalDateTime endTime = LocalDateTime.parse(endString, formatter);
+            
+            timeManagementService.createLog(activity, startTime, endTime);
+            timeManagementService.printLogs();
+            
+            logStage.close();
         });
         
-        
-        
-        
+  
     }
     
     public static void main(String[] args) {

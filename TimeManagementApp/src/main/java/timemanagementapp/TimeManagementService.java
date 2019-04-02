@@ -3,14 +3,20 @@ package timemanagementapp;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import static javafx.scene.paint.Color.*;
 
 
 public class TimeManagementService {
     //private LogDao logDao;
     private ArrayList<Log> logs;
+    private ArrayList<ActivityType> activityTypes;
 
     public TimeManagementService() {
         logs = new ArrayList<>();
+        activityTypes = new ArrayList<>();
+        activityTypes.add(new ActivityType("Work", RED));
+        activityTypes.add(new ActivityType("Errands", BLUE));
+        activityTypes.add(new ActivityType("Sport", GREEN));
     }
     
     public boolean createLog(ActivityType activityType, LocalDateTime start, LocalDateTime end) {
@@ -25,6 +31,21 @@ public class TimeManagementService {
         
         return true;
     }
+    
+    public void printLogs() {
+        for (Log log: logs ) {
+            System.out.println(log);
+        }
+
+    }
+    
+
+
+    public ArrayList<ActivityType> getActivityTypes() {
+        return activityTypes;
+    }
+    
+    
     
     
     
