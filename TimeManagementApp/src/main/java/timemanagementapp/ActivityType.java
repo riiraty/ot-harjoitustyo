@@ -31,7 +31,7 @@ public class ActivityType {
 
     @Override
     public String toString() {
-        return "ActivityType{" + "type=" + type + ", colorCode=" + colorCode + '}';
+        return type;
     }
     
     
