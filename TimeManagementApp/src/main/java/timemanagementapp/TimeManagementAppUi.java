@@ -1,12 +1,14 @@
 
 package timemanagementapp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -14,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -38,8 +41,29 @@ public class TimeManagementAppUi extends Application {
         layOutRight.setPrefSize(180, 700);
         layOutRight.getChildren().addAll(newLogButton);
         
-        TextArea leftField = new TextArea("");
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.");
+        
+        Label label1 = new Label(LocalDate.now().minusDays(5).format(dateFormatter));
+        Label label2 = new Label(LocalDate.now().minusDays(4).format(dateFormatter));
+        Label label3 = new Label(LocalDate.now().minusDays(3).format(dateFormatter));
+        Label label4 = new Label(LocalDate.now().minusDays(2).format(dateFormatter));
+        Label labelY = new Label("Yestarday");
+        Label labelT = new Label("Today");
+        
+        GridPane leftField = new GridPane();
         leftField.setPrefSize(1100, 700);
+        leftField.setVgap(150);
+        leftField.setHgap(150);
+        
+        
+        leftField.add(label1, 0, 0);
+        leftField.add(label2, 1, 0);
+        leftField.add(label3, 2, 0);
+        leftField.add(label4, 3, 0);
+        leftField.add(labelY, 4, 0);
+        leftField.add(labelT, 5, 0);
+//        TextArea leftField = new TextArea("");
+//        leftField.setPrefSize(1100, 700);
 
         BorderPane layOut = new BorderPane();
         layOut.setRight(layOutRight);
@@ -58,16 +82,18 @@ public class TimeManagementAppUi extends Application {
         comboBox.setPromptText("Select --");
         
         LocalDateTime current = LocalDateTime.now();
+        LocalDateTime anHourEarlier = LocalDateTime.now().minusHours(1);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-        String formatDateTime = current.format(formatter);
+        String formatCurrent = current.format(formatter);
+        String formatEarlier = anHourEarlier.format(formatter);
         
         Label activityLabel = new Label("Activity type: ");
         
         Label startLabel = new Label("Start time: ");
-        TextField startField = new TextField("" + formatDateTime);
+        TextField startField = new TextField("" + formatEarlier);
         
         Label endLabel = new Label("End time: ");
-        TextField endField = new TextField("" + formatDateTime);
+        TextField endField = new TextField("" + formatCurrent);
         
         Button createLogButton = new Button("LOG");
         
