@@ -18,7 +18,14 @@ public class TimeManagementService {
         activityTypes.add(new ActivityType("Errands", BLUE));
         activityTypes.add(new ActivityType("Sport", GREEN));
     }
-    
+
+    /**
+     * Creates a new log and ads it to the list that stores the logs
+     * @param activityType type of the new log
+     * @param start
+     * @param end
+     * @return true 
+     */
     public boolean createLog(ActivityType activityType, LocalDateTime start, LocalDateTime end) {
         Log log = new Log(activityType, start, end);
         logs.add(log);
@@ -32,11 +39,20 @@ public class TimeManagementService {
         return true;
     }
     
+    /**
+     * Prints all the logs the user has logged
+     */
     public void printLogs() {
         for (Log log: logs ) {
             System.out.println(log);
         }
 
+    }
+    
+    public void printActivityTypes() {
+        for (ActivityType type: activityTypes) {
+            System.out.println(type);
+        }
     }
     
 

@@ -31,13 +31,12 @@ public class TimeManagementAppUi extends Application {
         
         // the components of the main scene
         Button newLogButton = new Button("NEW LOG");
-        Button uselessButton = new Button("USELESS BUTTON");
         
         VBox layOutRight = new VBox();
         layOutRight.setPadding(new Insets(10, 10, 10, 10));
         layOutRight.setSpacing(15);
         layOutRight.setPrefSize(180, 700);
-        layOutRight.getChildren().addAll(newLogButton, uselessButton);
+        layOutRight.getChildren().addAll(newLogButton);
         
         TextArea leftField = new TextArea("");
         leftField.setPrefSize(1100, 700);
@@ -101,6 +100,7 @@ public class TimeManagementAppUi extends Application {
             
             timeManagementService.createLog(activity, startTime, endTime);
             timeManagementService.printLogs();
+            timeManagementService.printActivityTypes();
             
             logStage.close();
         });
