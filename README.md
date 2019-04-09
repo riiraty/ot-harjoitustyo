@@ -23,4 +23,7 @@ Test coverage raport can be created with a command
 ```
 mvn jacoco:report
 ```
+
+This works if older version(8) of Java is in use. Other option is to run tests through Netbeans by right clicking the project, then choosing Run Maven >testcoverage
+
 The raport can be viewed by opening a file _target/site/jacoco/index.html_ with a browser
