@@ -27,3 +27,14 @@ mvn jacoco:report
 This works if older version(8) of Java is in use. Other option is to run tests through Netbeans by right clicking the project, then choosing Run Maven >testcoverage
 
 The raport can be viewed by opening a file _target/site/jacoco/index.html_ with a browser
+
+### Checkstyle
+
+Checks specified in file [checkstyle.xml](https://github.com/riiraty/ot-harjoitustyo/blob/master/checkstyle.xml) are run with a command
+
+```
+ mvn jxr:jxr checkstyle:checkstyle
+```
+
+Possible alerts of errors can be viewed by opening a file _target/site/checkstyle.html_ with a browser
+
