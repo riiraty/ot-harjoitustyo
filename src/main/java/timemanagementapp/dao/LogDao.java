@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package timemanagementapp.dao;
 
-/**
- *
- * @author riiraty
- */
+import timemanagementapp.domain.Log;
+import java.sql.*;
+
 public interface LogDao {
+    
+    Log create(Log log) throws SQLException;
+    
+    Log delete(int id) throws SQLException;
+    
+    Log edit(int id) throws SQLException;
     
 }

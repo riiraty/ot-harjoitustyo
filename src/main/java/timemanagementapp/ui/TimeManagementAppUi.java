@@ -26,7 +26,7 @@ public class TimeManagementAppUi extends Application {
     
     @Override
     public void init() throws Exception {
-        timeManagementService = new TimeManagementService();
+        timeManagementService = new TimeManagementService();      
     }
 
     @Override
@@ -134,7 +134,7 @@ public class TimeManagementAppUi extends Application {
     
     @Override
     public void stop() {
-      System.out.println("Closing...");
+        System.out.println("Closing...");
     }
     
     public static void main(String[] args) {

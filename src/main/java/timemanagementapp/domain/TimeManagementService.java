@@ -4,6 +4,7 @@ package timemanagementapp.domain;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import static javafx.scene.paint.Color.*;
+//import timemanagementapp.dao.LogDao;
 
 
 public class TimeManagementService {
@@ -18,6 +19,10 @@ public class TimeManagementService {
         activityTypes.add(new ActivityType("Errands", BLUE));
         activityTypes.add(new ActivityType("Sport", GREEN));
     }
+    
+//    public TimeManagementService(LogDao logDao) {
+//        this.logDao = logDao;
+//    }
 
     public ArrayList<Log> getLogs() {
         return logs;
