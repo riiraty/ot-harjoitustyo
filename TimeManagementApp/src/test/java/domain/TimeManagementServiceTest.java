@@ -46,11 +46,7 @@ public class TimeManagementServiceTest {
         assertTrue(!service.getLogs().isEmpty());
     }
     
-    @Test
-    public void printLogsPrintsTheLogs() {
-        service.createLog(activityType, start, end);
-        
-    }
+
     
     
 
