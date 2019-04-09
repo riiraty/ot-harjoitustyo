@@ -1,5 +1,5 @@
 
-package timemanagementapp;
+package timemanagementapp.domain;
 
 import javafx.scene.paint.Color;
 

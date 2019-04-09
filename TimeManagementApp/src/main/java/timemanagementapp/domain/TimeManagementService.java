@@ -1,5 +1,5 @@
 
-package timemanagementapp;
+package timemanagementapp.domain;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -18,6 +18,15 @@ public class TimeManagementService {
         activityTypes.add(new ActivityType("Errands", BLUE));
         activityTypes.add(new ActivityType("Sport", GREEN));
     }
+
+    public ArrayList<Log> getLogs() {
+        return logs;
+    }
+    
+    public ArrayList<ActivityType> getActivityTypes() {
+        return activityTypes;
+    }
+    
 
     /**
      * Creates a new log and ads it to the list that stores the logs
@@ -54,15 +63,6 @@ public class TimeManagementService {
             System.out.println(type);
         }
     }
-    
-
-
-    public ArrayList<ActivityType> getActivityTypes() {
-        return activityTypes;
-    }
-    
-    
-    
-    
+       
     
 }

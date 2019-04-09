@@ -1,13 +1,13 @@
+package domain;
 
 
+
+import static javafx.scene.paint.Color.GREEN;
 import static javafx.scene.paint.Color.RED;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import timemanagementapp.ActivityType;
+import timemanagementapp.domain.ActivityType;
 
 
 public class ActivityTypeTest {
@@ -24,8 +24,22 @@ public class ActivityTypeTest {
         assertEquals("Work", activityType.getType());
     }
     
+    @Test
     public void constructorSetsTheColorCodeRight() {
         assertEquals(RED, activityType.getColorCode());
     }
+    
+    @Test
+    public void setterSetsTheTypeRight() {
+        activityType.setType("Sport");
+        assertEquals("Sport", activityType.getType());
+    }
+    
+    @Test
+    public void setterSetsTheColorCodeRight() {
+        activityType.setColorCode(GREEN);
+        assertEquals(GREEN, activityType.getColorCode());
+    }
+    
     
 }

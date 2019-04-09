@@ -1,6 +1,7 @@
 
-package timemanagementapp;
+package timemanagementapp.domain;
 
+import timemanagementapp.domain.ActivityType;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -24,7 +25,8 @@ public class Log {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
         String startTime = start.format(formatter);
         String endTime = end.format(formatter);
-        return ("Activity type: " + activityType + ", Start time: " + startTime + ", End time: " + endTime);
+        return ("Activity type: " + activityType + ", Start time: " + startTime 
+                + ", End time: " + endTime);
     }
     
     
