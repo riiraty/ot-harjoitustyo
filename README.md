@@ -6,6 +6,8 @@ The app allows the user to log the amount of time spent on certain tasks.
 
 [Requirement specification](https://github.com/riiraty/ot-harjoitustyo/blob/master/dokumentointi/requirement_specification.md)
 
+[Architectural description](https://github.com/riiraty/ot-harjoitustyo/blob/master/dokumentointi/architecture.md)
+
 [Work time log](https://github.com/riiraty/ot-harjoitustyo/blob/master/dokumentointi/work_time_log.md)
 
 ## Command line commands
