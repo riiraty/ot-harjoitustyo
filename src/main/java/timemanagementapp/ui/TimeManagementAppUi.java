@@ -125,13 +125,16 @@ public class TimeManagementAppUi extends Application {
             LocalDateTime endTime = LocalDateTime.parse(endString, formatter);
             
             timeManagementService.createLog(activity, startTime, endTime);
-            timeManagementService.printLogs();
-            timeManagementService.printActivityTypes();
             
             logStage.close();
         });
         
   
+    }
+    
+    @Override
+    public void stop() {
+      System.out.println("Closing...");
     }
     
     public static void main(String[] args) {
