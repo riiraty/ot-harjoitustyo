@@ -8,7 +8,7 @@ public class ActivityType {
     private String type;
     private Color colorCode;
     
-    public ActivityType(String type, Color color){
+    public ActivityType(String type, Color color) {
         this.type = type;
         this.colorCode = color;
     }

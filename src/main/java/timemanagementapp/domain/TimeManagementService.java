@@ -52,7 +52,7 @@ public class TimeManagementService {
      * Prints all the logs the user has logged
      */
     public void printLogs() {
-        for (Log log: logs ) {
+        for (Log log: logs) {
             System.out.println(log);
         }
 

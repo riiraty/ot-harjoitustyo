@@ -116,7 +116,7 @@ public class TimeManagementAppUi extends Application {
         
         
         createLogButton.setOnAction((event) -> {
-            ActivityType activity = (ActivityType)comboBox.getValue();
+            ActivityType activity = (ActivityType) comboBox.getValue();
             
             String startString = startField.getText();
             LocalDateTime startTime = LocalDateTime.parse(startString, formatter);
