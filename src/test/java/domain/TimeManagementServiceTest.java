@@ -27,12 +27,12 @@ public class TimeManagementServiceTest {
     
     @Test
     public void constructorCreatesAnArrayListForLogs() {
-        assertTrue(service.getLogs() != null);
+        assertTrue(service.getLogs().isEmpty());
     }
     
     @Test
-    public void constructorCreatesAnArrayListForActivityTypes() {
-        assertTrue(service.getActivityTypes() != null);
+    public void constructorCreatesAnArrayListOfActivityTypes() {
+        assertFalse(service.getActivityTypes().isEmpty());
     }
     
     @Test
@@ -43,7 +43,7 @@ public class TimeManagementServiceTest {
     @Test
     public void createLogAddsTheLogToTheList() {
         service.createLog(activityType, start, end);
-        assertTrue(!service.getLogs().isEmpty());
+        assertFalse(service.getLogs().isEmpty());
     }
     
 

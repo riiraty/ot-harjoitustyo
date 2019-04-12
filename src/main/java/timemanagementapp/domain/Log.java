@@ -1,7 +1,6 @@
 
 package timemanagementapp.domain;
 
-import timemanagementapp.domain.ActivityType;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 

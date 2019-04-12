@@ -1,6 +1,7 @@
 
 package timemanagementapp.ui;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,6 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import timemanagementapp.domain.ActivityType;
 import timemanagementapp.domain.TimeManagementService;
@@ -50,10 +53,18 @@ public class TimeManagementAppUi extends Application {
         Label labelY = new Label("Yestarday");
         Label labelT = new Label("Today");
         
+        VBox box1 = new VBox();
+        VBox box2 = new VBox();
+        VBox box3 = new VBox();
+        VBox box4 = new VBox();
+        VBox boxY = new VBox();
+        VBox boxT = new VBox();
+        
         GridPane leftField = new GridPane();
         leftField.setPrefSize(1100, 700);
-        leftField.setVgap(150);
-        leftField.setHgap(150);
+        leftField.setVgap(10);
+        leftField.setHgap(100);
+        //leftField.setGridLinesVisible(true); //!!
         
         
         leftField.add(label1, 0, 0);
@@ -62,9 +73,14 @@ public class TimeManagementAppUi extends Application {
         leftField.add(label4, 3, 0);
         leftField.add(labelY, 4, 0);
         leftField.add(labelT, 5, 0);
-//        TextArea leftField = new TextArea("");
-//        leftField.setPrefSize(1100, 700);
-
+        
+        leftField.add(box1, 0, 1);
+        leftField.add(box2, 1, 1);
+        leftField.add(box3, 2, 1);
+        leftField.add(box4, 3, 1);
+        leftField.add(boxY, 4, 1);
+        leftField.add(boxT, 5, 1);
+        
         BorderPane layOut = new BorderPane();
         layOut.setRight(layOutRight);
         layOut.setLeft(leftField);
@@ -80,7 +96,7 @@ public class TimeManagementAppUi extends Application {
                 FXCollections.observableArrayList(timeManagementService.getActivityTypes());
         ComboBox comboBox = new ComboBox(options);
         comboBox.setPromptText("Select --");
-        
+             
         LocalDateTime current = LocalDateTime.now();
         LocalDateTime anHourEarlier = LocalDateTime.now().minusHours(1);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
@@ -121,10 +137,25 @@ public class TimeManagementAppUi extends Application {
             String startString = startField.getText();
             LocalDateTime startTime = LocalDateTime.parse(startString, formatter);
             
-            String endString = startField.getText();
+            String endString = endField.getText();
             LocalDateTime endTime = LocalDateTime.parse(endString, formatter);
             
+            Duration duration = Duration.between(startTime, endTime);
+            long diff = Math.abs(duration.toMinutes());
+            System.out.println(diff);
+            
             timeManagementService.createLog(activity, startTime, endTime);
+            
+            Rectangle rect = new Rectangle();
+            rect.setHeight(diff);
+            rect.setWidth(150);
+            rect.setFill(activity.getColorCode());
+            rect.setStroke(Color.LIGHTGRAY);
+            rect.setStrokeWidth(1);
+            rect.setArcHeight(10);
+            rect.setArcWidth(10);
+        
+            boxT.getChildren().add(rect);
             
             logStage.close();
         });
