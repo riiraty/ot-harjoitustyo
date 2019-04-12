@@ -10,3 +10,4 @@ Date | Time(min) | Progress
 9.4. | 150 | Creating tests and making sure the test coverage raport can be aquired
 9.4. | 60 | Changing the structure of directory to match the reference app and taking Checkstyle in use
 9.4. | 240 | Unsuccesfully trying to figure out how to create and use a database in the project
+total | 24,2 h| 
