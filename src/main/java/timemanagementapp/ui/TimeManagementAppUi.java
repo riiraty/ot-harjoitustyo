@@ -41,7 +41,7 @@ public class TimeManagementAppUi extends Application {
         VBox layOutRight = new VBox();
         layOutRight.setPadding(new Insets(10, 10, 10, 10));
         layOutRight.setSpacing(15);
-        layOutRight.setPrefSize(180, 700);
+        layOutRight.setPrefSize(150, 700);
         layOutRight.getChildren().addAll(newLogButton);
         
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.");
@@ -78,8 +78,8 @@ public class TimeManagementAppUi extends Application {
         boxT.getChildren().add(labelT);
         
         HBox vboxes = new HBox();
-        vboxes.setPadding(new Insets(10, 10, 10, 10));
-        vboxes.setSpacing(20);
+        vboxes.setPadding(new Insets(10, 20, 10, 20));
+        vboxes.setSpacing(10);
         vboxes.getChildren().addAll(box1, box2, box3, box4, box5, boxY, boxT);
  
         VBox leftField = new VBox();
