@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -46,41 +47,46 @@ public class TimeManagementAppUi extends Application {
         
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.");
         
-        Label label1 = new Label(LocalDate.now().minusDays(5).format(dateFormatter));
-        Label label2 = new Label(LocalDate.now().minusDays(4).format(dateFormatter));
-        Label label3 = new Label(LocalDate.now().minusDays(3).format(dateFormatter));
-        Label label4 = new Label(LocalDate.now().minusDays(2).format(dateFormatter));
+        LocalDate date1 = LocalDate.now().minusDays(6);
+        LocalDate date2 = LocalDate.now().minusDays(5);
+        LocalDate date3 = LocalDate.now().minusDays(4);
+        LocalDate date4 = LocalDate.now().minusDays(3);
+        LocalDate date5 = LocalDate.now().minusDays(2);
+        LocalDate dateY = LocalDate.now().minusDays(1);
+        LocalDate dateT = LocalDate.now();
+        
+        Label label1 = new Label(date1.format(dateFormatter));
+        Label label2 = new Label(date2.format(dateFormatter));
+        Label label3 = new Label(date3.format(dateFormatter));
+        Label label4 = new Label(date4.format(dateFormatter));
+        Label label5 = new Label(date5.format(dateFormatter));
         Label labelY = new Label("Yestarday");
         Label labelT = new Label("Today");
-        
+  
         VBox box1 = new VBox();
+        box1.getChildren().add(label1);
         VBox box2 = new VBox();
+        box2.getChildren().add(label2);
         VBox box3 = new VBox();
+        box3.getChildren().add(label3);
         VBox box4 = new VBox();
+        box4.getChildren().add(label4);
+        VBox box5 = new VBox();
+        box5.getChildren().add(label5);
         VBox boxY = new VBox();
+        boxY.getChildren().add(labelY);
         VBox boxT = new VBox();
+        boxT.getChildren().add(labelT);
         
-        GridPane leftField = new GridPane();
+        HBox vboxes = new HBox();
+        vboxes.setPadding(new Insets(10, 10, 10, 10));
+        vboxes.setSpacing(20);
+        vboxes.getChildren().addAll(box1, box2, box3, box4, box5, boxY, boxT);
+ 
+        VBox leftField = new VBox();
         leftField.setPrefSize(1100, 700);
-        leftField.setVgap(10);
-        leftField.setHgap(100);
-        //leftField.setGridLinesVisible(true); //!!
-        
-        
-        leftField.add(label1, 0, 0);
-        leftField.add(label2, 1, 0);
-        leftField.add(label3, 2, 0);
-        leftField.add(label4, 3, 0);
-        leftField.add(labelY, 4, 0);
-        leftField.add(labelT, 5, 0);
-        
-        leftField.add(box1, 0, 1);
-        leftField.add(box2, 1, 1);
-        leftField.add(box3, 2, 1);
-        leftField.add(box4, 3, 1);
-        leftField.add(boxY, 4, 1);
-        leftField.add(boxT, 5, 1);
-        
+        leftField.getChildren().add(vboxes);
+    
         BorderPane layOut = new BorderPane();
         layOut.setRight(layOutRight);
         layOut.setLeft(leftField);
@@ -140,6 +146,8 @@ public class TimeManagementAppUi extends Application {
             String endString = endField.getText();
             LocalDateTime endTime = LocalDateTime.parse(endString, formatter);
             
+            LocalDate date = startTime.toLocalDate();
+            
             Duration duration = Duration.between(startTime, endTime);
             long diff = Math.abs(duration.toMinutes());
             System.out.println(diff);
@@ -155,8 +163,22 @@ public class TimeManagementAppUi extends Application {
             rect.setArcHeight(10);
             rect.setArcWidth(10);
         
-            boxT.getChildren().add(rect);
-            
+            if(date.equals(dateT)) {
+                boxT.getChildren().add(rect);
+            } else if (date.equals(dateY)) {
+                boxY.getChildren().add(rect);
+            } else if(date.equals(date5)) {
+                box5.getChildren().add(rect);
+            } else if (date.equals(date4)) {
+                box4.getChildren().add(rect);
+            } else if (date.equals(date3)) {
+                box3.getChildren().add(rect);
+            } else if (date.equals(date2)) {
+                box2.getChildren().add(rect);
+            } else if (date.equals(date1)) {
+                box1.getChildren().add(rect);
+            }
+                      
             logStage.close();
         });
         
