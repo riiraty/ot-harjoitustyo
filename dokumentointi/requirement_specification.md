@@ -8,7 +8,7 @@ The application allows the user to keep up with how the time is managed througho
 
 Overview of the interface
 
-<img src="https://github.com/riiraty/ot-harjoitustyo/blob/master/dokumentointi/kuvat/RS_1.png" width="750">
+<img src="https://github.com/riiraty/ot-harjoitustyo/blob/master/dokumentointi/kuvat/GUI.png" width="750">
 
 Function to create a new log and summary of the week on the right, timetable of the current and previous 6 days on the left. Function to edit or delete previus logs by clicking the descriptive bar on the timetable.
 
