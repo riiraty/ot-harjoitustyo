@@ -2,7 +2,7 @@
 
 ## Purpose of the application
 
-The application allows the user to keep up with how the time is managed throughout the day. For example what portion of the day is spent working, excercising, sleeping etc.
+The application allows the user to track time spent productively and shows a graphic display of the ongoing week.
 
 ## Draft of the user interface
 
