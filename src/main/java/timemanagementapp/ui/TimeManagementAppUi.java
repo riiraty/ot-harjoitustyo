@@ -15,7 +15,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -150,7 +149,6 @@ public class TimeManagementAppUi extends Application {
             
             Duration duration = Duration.between(startTime, endTime);
             long diff = Math.abs(duration.toMinutes());
-            System.out.println(diff);
             
             timeManagementService.createLog(activity, startTime, endTime);
             

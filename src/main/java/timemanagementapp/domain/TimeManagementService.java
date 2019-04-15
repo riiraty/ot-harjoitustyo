@@ -3,6 +3,7 @@ package timemanagementapp.domain;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import javafx.scene.paint.Color;
 import static javafx.scene.paint.Color.*;
 //import timemanagementapp.dao.LogDao;
 
@@ -15,9 +16,9 @@ public class TimeManagementService {
     public TimeManagementService() {
         logs = new ArrayList<>();
         activityTypes = new ArrayList<>();
-        activityTypes.add(new ActivityType("Work", RED));
-        activityTypes.add(new ActivityType("Errands", BLUE));
-        activityTypes.add(new ActivityType("Sport", GREEN));
+        activityTypes.add(new ActivityType("Work", SALMON));
+        activityTypes.add(new ActivityType("Errands", LIGHTBLUE));
+        activityTypes.add(new ActivityType("Sport", LIGHTGREEN));
     }
     
 //    public TimeManagementService(LogDao logDao) {
@@ -50,6 +51,11 @@ public class TimeManagementService {
 //            return false;
 //        }
         
+        return true;
+    }
+    
+    public boolean createNewActivityType(String type, Color color) {
+        activityTypes.add(new ActivityType(type, color));
         return true;
     }
     

@@ -2,8 +2,8 @@ package domain;
 
 
 
-import static javafx.scene.paint.Color.GREEN;
-import static javafx.scene.paint.Color.RED;
+import static javafx.scene.paint.Color.LIGHTGREEN;
+import static javafx.scene.paint.Color.SALMON;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -16,7 +16,7 @@ public class ActivityTypeTest {
     
     @Before
     public void setUp() {
-        activityType = new ActivityType("Work", RED);
+        activityType = new ActivityType("Work", SALMON);
     }
     
     @Test
@@ -26,7 +26,7 @@ public class ActivityTypeTest {
     
     @Test
     public void constructorSetsTheColorCodeRight() {
-        assertEquals(RED, activityType.getColorCode());
+        assertEquals(SALMON, activityType.getColorCode());
     }
     
     @Test
@@ -37,8 +37,8 @@ public class ActivityTypeTest {
     
     @Test
     public void setterSetsTheColorCodeRight() {
-        activityType.setColorCode(GREEN);
-        assertEquals(GREEN, activityType.getColorCode());
+        activityType.setColorCode(LIGHTGREEN);
+        assertEquals(LIGHTGREEN, activityType.getColorCode());
     }
     
     
