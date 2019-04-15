@@ -10,19 +10,19 @@ Overview of the interface
 
 <img src="https://github.com/riiraty/ot-harjoitustyo/blob/master/dokumentointi/kuvat/GUI.png" width="750">
 
-Function to create a new log and summary of the week on the right, timetable of the current and previous 6 days on the left. Function to edit or delete previus logs by clicking the descriptive bar on the timetable.
+Function to create a new log and summary of the week on the right, progress bar of the current and previous 6 days on the left.
 
  
 ## Functionality
 
 * User can log activities by giving start time, end time and type of activity
-* User can see their logs color coded on a timetable, the current day and 6 previous ones
+* User can see their logs as color coded progress bars, the current day and 6 previous ones
 * User can edit and delete the logs they made
-* User can look at older logs 
 
 
 ## Ideas for future development
 
+* User can look at older logs
 * The log has an option to add description
 * User can get a summary of the week (pie chart)
 * Adding username and login, allowing several users
