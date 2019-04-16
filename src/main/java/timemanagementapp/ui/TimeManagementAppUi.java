@@ -55,12 +55,19 @@ public class TimeManagementAppUi extends Application {
         LocalDate dateT = LocalDate.now();
         
         Label label1 = new Label(date1.format(dateFormatter));
+        label1.setMinWidth(150);
         Label label2 = new Label(date2.format(dateFormatter));
+        label2.setMinWidth(150);
         Label label3 = new Label(date3.format(dateFormatter));
+        label3.setMinWidth(150);
         Label label4 = new Label(date4.format(dateFormatter));
+        label4.setMinWidth(150);
         Label label5 = new Label(date5.format(dateFormatter));
+        label5.setMinWidth(150);
         Label labelY = new Label("Yesterday");
+        labelY.setMinWidth(150);
         Label labelT = new Label("Today");
+        labelT.setMinWidth(150);
   
         VBox box1 = new VBox();
         box1.getChildren().add(label1);
