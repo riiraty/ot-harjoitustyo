@@ -59,7 +59,7 @@ public class TimeManagementAppUi extends Application {
         Label label3 = new Label(date3.format(dateFormatter));
         Label label4 = new Label(date4.format(dateFormatter));
         Label label5 = new Label(date5.format(dateFormatter));
-        Label labelY = new Label("Yestarday");
+        Label labelY = new Label("Yesterday");
         Label labelT = new Label("Today");
   
         VBox box1 = new VBox();
