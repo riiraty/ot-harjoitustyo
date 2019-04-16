@@ -12,4 +12,5 @@ Date | Time(min) | Progress
 9.4. | 240 | Unsuccesfully trying to figure out how to create and use a database in the project
 12.4. | 195 | Adding some graphics
 15.4. | 240 | Changing the layouts structure and developing the drawing feature
-total | 31,4 h| 
+16.4. | 135 | Making sure jar can be created, figuring out databases, figuring out how to test void methods
+total | 2020 = 33,7 h| 
