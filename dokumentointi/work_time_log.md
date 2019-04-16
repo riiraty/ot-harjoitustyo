@@ -13,4 +13,5 @@ Date | Time(min) | Progress
 12.4. | 195 | Adding some graphics
 15.4. | 240 | Changing the layouts structure and developing the drawing feature
 16.4. | 135 | Making sure jar can be created, figuring out databases, figuring out how to test void methods
-total | 2020 = 33,7 h| 
+16.4. | 90 | Fixing the graphics, adding some javadocs and making the release
+total | 2110 = 35,2h| 
