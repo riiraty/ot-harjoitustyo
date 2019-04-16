@@ -14,7 +14,7 @@ The app allows the user to log the amount of time spent on certain tasks.
 
 ## Releases
 
-[Week 5]() 
+[Week 5](https://github.com/riiraty/ot-harjoitustyo/releases/tag/week5) 
 
 
 ## Terminal commands
