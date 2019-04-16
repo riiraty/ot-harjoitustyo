@@ -12,6 +12,11 @@ The app allows the user to log the amount of time spent on certain tasks.
 [Work time log](https://github.com/riiraty/ot-harjoitustyo/blob/master/dokumentointi/work_time_log.md)
 
 
+## Releases
+
+[Week 5]() 
+
+
 ## Terminal commands
 
 Older Java version (8) is required to run the commands.
