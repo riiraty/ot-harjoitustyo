@@ -14,4 +14,5 @@ Date | Time(min) | Progress
 15.4. | 240 | Changing the layouts structure and developing the drawing feature
 16.4. | 135 | Making sure jar can be created, figuring out databases, figuring out how to test void methods
 16.4. | 90 | Fixing the graphics, adding some javadocs and making the release
-total | 2110 = 35,2h| 
+16.4. | 30 | Trying to draw a sequence chart, trying to refactor the UI
+total | 2140 = 35,7h| 
