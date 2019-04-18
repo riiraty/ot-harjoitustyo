@@ -3,10 +3,8 @@ package timemanagementapp.domain;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import javafx.scene.paint.Color;
 import static javafx.scene.paint.Color.*;
-import javafx.scene.shape.Rectangle;
 //import timemanagementapp.dao.LogDao;
 
 
