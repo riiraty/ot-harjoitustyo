@@ -1,3 +1,4 @@
+
 Date | Time(min) | Progress
 -----|-----------|----------
 21.3. | 60 | Getting to know the project requirements and coming up with the idea for the application
@@ -15,4 +16,6 @@ Date | Time(min) | Progress
 16.4. | 135 | Making sure jar can be created, figuring out databases, figuring out how to test void methods
 16.4. | 90 | Fixing the graphics, adding some javadocs and making the release
 16.4. | 30 | Trying to draw a sequence chart, trying to refactor the UI
-total | 2140 = 35,7h| 
+18.4. | 60 | Figuring out how to clone my project to my own laptop
+total | 2200 = 36,7h| 
+
