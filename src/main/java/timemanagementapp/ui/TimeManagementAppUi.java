@@ -196,6 +196,7 @@ public class TimeManagementAppUi extends Application {
             rect.setArcWidth(10);
             
             rect.setOnMouseClicked(new EventHandler<MouseEvent>() { 
+                @Override
                 public void handle(MouseEvent t) {
                     rect.setFill(Color.RED); //to do: make it possible to edit or delete
                 }
