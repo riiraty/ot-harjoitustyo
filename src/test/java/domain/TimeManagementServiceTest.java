@@ -2,6 +2,7 @@
 package domain;
 
 import java.time.LocalDateTime;
+import javafx.scene.paint.Color;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -46,6 +47,11 @@ public class TimeManagementServiceTest {
         assertFalse(service.getLogs().isEmpty());
     }
     
+    @Test
+    public void createNewActivityTypeAddsTheNewTypeToTheList() {
+        service.createNewActivityType("Nap", Color.CYAN);
+        assertEquals(4, service.getActivityTypes().size());
+    }
 
     
     

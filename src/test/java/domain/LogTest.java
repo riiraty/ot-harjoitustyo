@@ -41,6 +41,26 @@ public class LogTest {
                 startTime + ", End time: " + endTime), log.toString());
     }
     
+    @Test
+    public void getActivityTypeReturnsActivityType() {
+        assertEquals(activityType, log.getActivityType());
+    }
+    
+    @Test
+    public void getStartReturnsStartTime() {
+        assertEquals(start, log.getStart());
+    }
+    
+    @Test
+    public void getEndReturnsEndTime() {
+        assertEquals(end, log.getEnd());
+    }
+    
+    @Test
+    public void getDateReturnsTheRightDate() {
+        assertEquals(start.toLocalDate(), log.getDate());
+    }
+    
 
 
 }
