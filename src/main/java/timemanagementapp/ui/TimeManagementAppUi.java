@@ -8,12 +8,14 @@ import java.time.format.DateTimeFormatter;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -70,7 +72,7 @@ public class TimeManagementAppUi extends Application {
         VBox layOutRight = new VBox();
         layOutRight.setPadding(new Insets(10, 10, 10, 10));
         layOutRight.setSpacing(15);
-        layOutRight.setPrefSize(150, 700);
+        layOutRight.setPrefSize(150, 600);
         layOutRight.getChildren().addAll(newLogButton);
         
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.");
@@ -104,7 +106,7 @@ public class TimeManagementAppUi extends Application {
         vboxes.getChildren().addAll(box1, box2, box3, box4, box5, boxY, boxT);
  
         VBox layOutLeft = new VBox();
-        layOutLeft.setPrefSize(1100, 700);
+        layOutLeft.setPrefSize(1100, 600);
         layOutLeft.getChildren().add(vboxes);
         
         newLogButton.setOnAction((event) -> { 
@@ -185,13 +187,20 @@ public class TimeManagementAppUi extends Application {
     
     public void drawARectangle(LocalDate date, long diff, ActivityType activity) {
         Rectangle rect = new Rectangle();
-            rect.setHeight(diff);
-            rect.setWidth(150);
+        rect.setHeight(diff);
+        rect.setWidth(150);
             rect.setFill(activity.getColorCode());
             rect.setStroke(Color.LIGHTGRAY);
             rect.setStrokeWidth(1);
             rect.setArcHeight(10);
             rect.setArcWidth(10);
+            
+            rect.setOnMouseClicked(new EventHandler<MouseEvent>() { 
+                public void handle(MouseEvent t) {
+                    rect.setFill(Color.RED); //to do: make it possible to edit or delete
+                }
+            });
+            
         
             if(date.equals(dateT)) {
                 boxT.getChildren().add(rect);
@@ -208,6 +217,8 @@ public class TimeManagementAppUi extends Application {
             } else if (date.equals(date1)) {
                 box1.getChildren().add(rect);
             }
+            
+            
     }
     
     @Override
