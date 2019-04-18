@@ -26,10 +26,39 @@ import timemanagementapp.domain.TimeManagementService;
 
 public class TimeManagementAppUi extends Application {
     private TimeManagementService timeManagementService;
+    private LocalDate date1;
+    private LocalDate date2;
+    private LocalDate date3;
+    private LocalDate date4;
+    private LocalDate date5;
+    private LocalDate dateY;
+    private LocalDate dateT;
+    private VBox box1;
+    private VBox box2;
+    private VBox box3;
+    private VBox box4;
+    private VBox box5;
+    private VBox boxY;
+    private VBox boxT;
     
     @Override
     public void init() throws Exception {
-        timeManagementService = new TimeManagementService();      
+        timeManagementService = new TimeManagementService(); 
+        dateT = LocalDate.now();
+        dateY = dateT.minusDays(1);
+        date5 = dateY.minusDays(1);
+        date4 = date5.minusDays(1);
+        date3 = date4.minusDays(1);
+        date2 = date3.minusDays(1);
+        date1 = date2.minusDays(1);
+        box1 = new VBox();
+        box2 = new VBox();
+        box3 = new VBox();
+        box4 = new VBox();
+        box5 = new VBox();
+        boxY = new VBox();
+        boxT = new VBox();
+
     }
 
     @Override
@@ -45,15 +74,7 @@ public class TimeManagementAppUi extends Application {
         layOutRight.getChildren().addAll(newLogButton);
         
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.");
-        
-        LocalDate date1 = LocalDate.now().minusDays(6);
-        LocalDate date2 = LocalDate.now().minusDays(5);
-        LocalDate date3 = LocalDate.now().minusDays(4);
-        LocalDate date4 = LocalDate.now().minusDays(3);
-        LocalDate date5 = LocalDate.now().minusDays(2);
-        LocalDate dateY = LocalDate.now().minusDays(1);
-        LocalDate dateT = LocalDate.now();
-        
+  
         Label label1 = new Label(date1.format(dateFormatter));
         label1.setMinWidth(150);
         Label label2 = new Label(date2.format(dateFormatter));
@@ -68,20 +89,13 @@ public class TimeManagementAppUi extends Application {
         labelY.setMinWidth(150);
         Label labelT = new Label("Today");
         labelT.setMinWidth(150);
-  
-        VBox box1 = new VBox();
+
         box1.getChildren().add(label1);
-        VBox box2 = new VBox();
         box2.getChildren().add(label2);
-        VBox box3 = new VBox();
         box3.getChildren().add(label3);
-        VBox box4 = new VBox();
         box4.getChildren().add(label4);
-        VBox box5 = new VBox();
         box5.getChildren().add(label5);
-        VBox boxY = new VBox();
         boxY.getChildren().add(labelY);
-        VBox boxT = new VBox();
         boxT.getChildren().add(labelT);
         
         HBox vboxes = new HBox();
@@ -89,13 +103,18 @@ public class TimeManagementAppUi extends Application {
         vboxes.setSpacing(10);
         vboxes.getChildren().addAll(box1, box2, box3, box4, box5, boxY, boxT);
  
-        VBox leftField = new VBox();
-        leftField.setPrefSize(1100, 700);
-        leftField.getChildren().add(vboxes);
+        VBox layOutLeft = new VBox();
+        layOutLeft.setPrefSize(1100, 700);
+        layOutLeft.getChildren().add(vboxes);
+        
+        newLogButton.setOnAction((event) -> { 
+            Stage logStage = drawNewLogWindow();
+            logStage.show();
+        });
     
         BorderPane layOut = new BorderPane();
         layOut.setRight(layOutRight);
-        layOut.setLeft(leftField);
+        layOut.setLeft(layOutLeft);
         
         Scene mainScene = new Scene(layOut);
         
@@ -103,7 +122,9 @@ public class TimeManagementAppUi extends Application {
         primaryStage.setScene(mainScene);
         primaryStage.show();
 
-        //a new window for making new logs
+    }
+    
+    public Stage drawNewLogWindow() {
         ObservableList<ActivityType> options = 
                 FXCollections.observableArrayList(timeManagementService.getActivityTypes());
         ComboBox comboBox = new ComboBox(options);
@@ -137,12 +158,7 @@ public class TimeManagementAppUi extends Application {
         Stage logStage = new Stage();
         logStage.setTitle("New Log");
         logStage.setScene(logScene);
-        
-        newLogButton.setOnAction((event) -> { 
-            logStage.show();
-        });
-        
-        
+ 
         createLogButton.setOnAction((event) -> {
             ActivityType activity = (ActivityType) comboBox.getValue();
             
@@ -159,7 +175,16 @@ public class TimeManagementAppUi extends Application {
             
             timeManagementService.createLog(activity, startTime, endTime);
             
-            Rectangle rect = new Rectangle();
+            drawARectangle(date, diff, activity);
+                      
+            logStage.close();
+        });
+        
+        return logStage;
+    } 
+    
+    public void drawARectangle(LocalDate date, long diff, ActivityType activity) {
+        Rectangle rect = new Rectangle();
             rect.setHeight(diff);
             rect.setWidth(150);
             rect.setFill(activity.getColorCode());
@@ -183,11 +208,6 @@ public class TimeManagementAppUi extends Application {
             } else if (date.equals(date1)) {
                 box1.getChildren().add(rect);
             }
-                      
-            logStage.close();
-        });
-        
-  
     }
     
     @Override
