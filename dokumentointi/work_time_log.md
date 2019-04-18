@@ -18,5 +18,6 @@ Date | Time(min) | Progress
 16.4. | 30 | Trying to draw a sequence chart, trying to refactor the UI
 18.4. | 60 | Figuring out how to clone my project to my own laptop
 18.4. | 330 | Refactoring my UI and figuring out how to proceed with adding more features
-total | 2530 = 42,2h| 
+18.4. | 30 | Adding some tests
+total | 2560 = 42,7h| 
 
