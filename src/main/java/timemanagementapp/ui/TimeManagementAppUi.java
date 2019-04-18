@@ -8,7 +8,6 @@ import java.time.format.DateTimeFormatter;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -23,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import timemanagementapp.domain.ActivityType;
+import timemanagementapp.domain.Log;
 import timemanagementapp.domain.TimeManagementService;
 
 
@@ -42,6 +42,7 @@ public class TimeManagementAppUi extends Application {
     private VBox box5;
     private VBox boxY;
     private VBox boxT;
+    private HBox vBoxes;
     
     @Override
     public void init() throws Exception {
@@ -53,14 +54,7 @@ public class TimeManagementAppUi extends Application {
         date3 = date4.minusDays(1);
         date2 = date3.minusDays(1);
         date1 = date2.minusDays(1);
-        box1 = new VBox();
-        box2 = new VBox();
-        box3 = new VBox();
-        box4 = new VBox();
-        box5 = new VBox();
-        boxY = new VBox();
-        boxT = new VBox();
-
+        
     }
 
     @Override
@@ -92,25 +86,17 @@ public class TimeManagementAppUi extends Application {
         Label labelT = new Label("Today");
         labelT.setMinWidth(150);
 
-        box1.getChildren().add(label1);
-        box2.getChildren().add(label2);
-        box3.getChildren().add(label3);
-        box4.getChildren().add(label4);
-        box5.getChildren().add(label5);
-        boxY.getChildren().add(labelY);
-        boxT.getChildren().add(labelT);
-        
-        HBox vboxes = new HBox();
-        vboxes.setPadding(new Insets(10, 20, 10, 20));
-        vboxes.setSpacing(10);
-        vboxes.getChildren().addAll(box1, box2, box3, box4, box5, boxY, boxT);
+        HBox labels = new HBox();
+        labels.setPadding(new Insets(10, 10, 10, 10));
+        labels.setSpacing(15);
+        labels.getChildren().addAll(label1, label2, label3, label4, label5, labelY, labelT);
  
         VBox layOutLeft = new VBox();
         layOutLeft.setPrefSize(1100, 600);
-        layOutLeft.getChildren().add(vboxes);
+        layOutLeft.getChildren().add(labels);
         
         newLogButton.setOnAction((event) -> { 
-            Stage logStage = drawNewLogWindow();
+            Stage logStage = drawNewLogWindow(layOutLeft);
             logStage.show();
         });
     
@@ -126,7 +112,7 @@ public class TimeManagementAppUi extends Application {
 
     }
     
-    public Stage drawNewLogWindow() {
+    public Stage drawNewLogWindow(VBox layOutLeft) {
         ObservableList<ActivityType> options = 
                 FXCollections.observableArrayList(timeManagementService.getActivityTypes());
         ComboBox comboBox = new ComboBox(options);
@@ -170,14 +156,9 @@ public class TimeManagementAppUi extends Application {
             String endString = endField.getText();
             LocalDateTime endTime = LocalDateTime.parse(endString, formatter);
             
-            LocalDate date = startTime.toLocalDate();
-            
-            Duration duration = Duration.between(startTime, endTime);
-            long diff = Math.abs(duration.toMinutes());
-            
             timeManagementService.createLog(activity, startTime, endTime);
             
-            drawARectangle(date, diff, activity);
+            drawRectangles(layOutLeft);
                       
             logStage.close();
         });
@@ -185,41 +166,76 @@ public class TimeManagementAppUi extends Application {
         return logStage;
     } 
     
-    public void drawARectangle(LocalDate date, long diff, ActivityType activity) {
+    public void formatVBoxes(VBox layOutLeft) {
+        layOutLeft.getChildren().remove(vBoxes);
+        
+        box1 = new VBox();
+        box1.setMinWidth(150);
+        box2 = new VBox();
+        box2.setMinWidth(150);
+        box3 = new VBox();
+        box3.setMinWidth(150);
+        box4 = new VBox();
+        box4.setMinWidth(150);
+        box5 = new VBox();
+        box5.setMinWidth(150);
+        boxY = new VBox();
+        boxY.setMinWidth(150);
+        boxT = new VBox();
+        boxT.setMinWidth(150);
+        
+        vBoxes = new HBox();
+        vBoxes.setPadding(new Insets(10, 10, 10, 10));
+        vBoxes.setSpacing(15);
+        vBoxes.getChildren().addAll(box1, box2, box3, box4, box5, boxY, boxT);
+        
+        layOutLeft.getChildren().add(vBoxes);
+        
+    }
+    
+    public Rectangle newRectangle(LocalDate date, long diff, ActivityType activity) {
         Rectangle rect = new Rectangle();
         rect.setHeight(diff);
         rect.setWidth(150);
-            rect.setFill(activity.getColorCode());
-            rect.setStroke(Color.LIGHTGRAY);
-            rect.setStrokeWidth(1);
-            rect.setArcHeight(10);
-            rect.setArcWidth(10);
+        rect.setFill(activity.getColorCode());
+        rect.setStroke(Color.LIGHTGRAY);
+        rect.setStrokeWidth(1);
+        rect.setArcHeight(10);
+        rect.setArcWidth(10);
             
-            rect.setOnMouseClicked(new EventHandler<MouseEvent>() { 
-                @Override
-                public void handle(MouseEvent t) {
-                    rect.setFill(Color.RED); //to do: make it possible to edit or delete
+        rect.setOnMouseClicked((MouseEvent t) -> {
+            rect.setFill(Color.RED); //to do: make it possible to edit or delete
+        });
+           
+        return rect;    
+    }
+    public void drawRectangles(VBox layOutLeft) {
+        formatVBoxes(layOutLeft);
+       
+        for(Log log: timeManagementService.getLogs()) {
+            LocalDate date = log.getDate();
+            Duration duration = Duration.between(log.getStart(), log.getEnd());
+            long diff = Math.abs(duration.toMinutes());
+            ActivityType activity = log.getActivityType();
+            
+            Rectangle rect = newRectangle(date, diff, activity);
+            
+                if(date.equals(dateT)) {
+                    boxT.getChildren().add(rect);
+                } else if (date.equals(dateY)) {
+                    boxY.getChildren().add(rect);
+                } else if(date.equals(date5)) {
+                    box5.getChildren().add(rect);
+                } else if (date.equals(date4)) {
+                    box4.getChildren().add(rect);
+                } else if (date.equals(date3)) {
+                    box3.getChildren().add(rect);
+                } else if (date.equals(date2)) {
+                    box2.getChildren().add(rect);
+                } else if (date.equals(date1)) {
+                    box1.getChildren().add(rect);
                 }
-            });
-            
-        
-            if(date.equals(dateT)) {
-                boxT.getChildren().add(rect);
-            } else if (date.equals(dateY)) {
-                boxY.getChildren().add(rect);
-            } else if(date.equals(date5)) {
-                box5.getChildren().add(rect);
-            } else if (date.equals(date4)) {
-                box4.getChildren().add(rect);
-            } else if (date.equals(date3)) {
-                box3.getChildren().add(rect);
-            } else if (date.equals(date2)) {
-                box2.getChildren().add(rect);
-            } else if (date.equals(date1)) {
-                box1.getChildren().add(rect);
-            }
-            
-            
+        }
     }
     
     @Override

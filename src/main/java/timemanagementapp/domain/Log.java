@@ -1,6 +1,7 @@
 
 package timemanagementapp.domain;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -17,6 +18,22 @@ public class Log {
         this.activityType = activityType;
         this.start = start;
         this.end = end;
+    }
+
+    public ActivityType getActivityType() {
+        return activityType;
+    }
+
+    public LocalDateTime getStart() {
+        return start;
+    }
+
+    public LocalDateTime getEnd() {
+        return end;
+    }
+    
+    public LocalDate getDate() {
+        return start.toLocalDate();
     }
 
     @Override

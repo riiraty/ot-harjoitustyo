@@ -3,8 +3,10 @@ package timemanagementapp.domain;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javafx.scene.paint.Color;
 import static javafx.scene.paint.Color.*;
+import javafx.scene.shape.Rectangle;
 //import timemanagementapp.dao.LogDao;
 
 
@@ -12,7 +14,7 @@ public class TimeManagementService {
     //private LogDao logDao;
     private ArrayList<Log> logs;
     private ArrayList<ActivityType> activityTypes;
-
+    
     public TimeManagementService() {
         logs = new ArrayList<>();
         activityTypes = new ArrayList<>();
@@ -33,7 +35,7 @@ public class TimeManagementService {
     public ArrayList<Log> getLogs() {
         return logs;
     }
-    
+
     /**
      * Returns an ArrayList with all the ActivityTypes created
      * @return ArrayList<>
@@ -50,10 +52,10 @@ public class TimeManagementService {
      * @param end moment the activity was finished
      * @return true 
      */
-    public boolean createLog(ActivityType activityType, LocalDateTime start, LocalDateTime end) {
+    public Boolean createLog(ActivityType activityType, LocalDateTime start, LocalDateTime end) {
         Log log = new Log(activityType, start, end);
         logs.add(log);
-        
+ 
 //        try {
 //            logDao.create(log);
 //        } catch (Exception ex) {
@@ -62,7 +64,7 @@ public class TimeManagementService {
         
         return true;
     }
-    
+     
     /**
      * Creates a new ActivityType and ads it to the ArrayList that stores the types
      * @param type descriptive word for the new type
